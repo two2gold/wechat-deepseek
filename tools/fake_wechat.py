@@ -8,7 +8,7 @@
 
   # 2) 安全模式
   python tools/fake_wechat.py --url http://127.0.0.1:8000/wechat --token xxx ^
-      --aes-key <43位EncodingAESKey> --appid wx1234567890abcdef
+      --aes-key <43位EncodingAESKey> --appid wxYOUR_APPID
 
   # 3) 只测 URL 校验（对应后台点"提交"那一步）
   python tools/fake_wechat.py --url https://你的域名/wechat --token xxx --check-only

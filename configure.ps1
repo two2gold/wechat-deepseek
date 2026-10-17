@@ -1,7 +1,7 @@
 ﻿# 一把梭配置：填入公众号与 DeepSeek 凭据，自动改写 .env、重启服务并自检
 #
 # 用法：
-#   .\configure.cmd -AppId wx1234567890abcdef -AppSecret 你的appsecret -DeepSeekKey sk-xxxx
+#   .\configure.cmd -AppId wxYOUR_APPID -AppSecret 你的appsecret -DeepSeekKey sk-xxxx
 # 只配 DeepSeek（暂时没公众号凭据）：
 #   .\configure.cmd -DeepSeekKey sk-xxxx
 param(
