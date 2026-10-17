@@ -1,0 +1,18 @@
+services:
+  wechat-deepseek:
+    build: .
+    image: wechat-deepseek:latest
+    container_name: wechat-deepseek
+    restart: unless-stopped
+    env_file:
+      - .env
+    # 只监听本机，公网入口交给 Nginx（HTTPS + 80/443 端口要求）
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - ./data:/app/data
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

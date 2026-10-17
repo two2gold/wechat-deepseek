@@ -1,0 +1,32 @@
+# 安装：
+#   sudo cp deploy/wechat-deepseek.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now wechat-deepseek
+# 查看日志：
+#   sudo journalctl -u wechat-deepseek -f
+[Unit]
+Description=WeChat Official Account x DeepSeek bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# 改成你的实际部署路径和用户
+WorkingDirectory=/opt/wechat-deepseek
+EnvironmentFile=/opt/wechat-deepseek/.env
+ExecStart=/opt/wechat-deepseek/.venv/bin/python run.py
+Restart=always
+RestartSec=3
+User=www-data
+Group=www-data
+# 基础加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ReadWritePaths=/opt/wechat-deepseek/data
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=wechat-deepseek
+
+[Install]
+WantedBy=multi-user.target

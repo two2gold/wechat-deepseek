@@ -1,0 +1,7 @@
+# 运行依赖（Python 3.10+）
+fastapi>=0.110,<1.0
+uvicorn>=0.27,<1.0
+httpx>=0.27,<1.0
+pycryptodome>=3.20          # 仅"安全模式"需要，明文模式可以不装
+
+# 本地测试（可选）：pip install -r requirements-dev.txt
